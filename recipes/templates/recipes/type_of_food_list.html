@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Recipes</h1>
+  {% if recipe_list %}
+  <ul>
+    {% for recipe in recipe_list %}
+      <li>
+        <a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a> ({{recipe.author}})
+	    <a href="{% url 'recipe_update' recipe.slug %}"> Update Recipe
+	    <a href="{% url 'recipe_delete' recipe.slug %}"> Delete Recipe
+      </li>
+    {% endfor %}
+	<li><a href="{% url 'recipe_create' %}">Add recipe</a></li>
+  </ul>
+  {% else %}
+    <p>There are no recipes in the cookbook.</p>
+  {% endif %}       
+{% endblock %}

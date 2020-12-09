@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+li {text-align: center;}
+</style>
+ <h1 style="font-size:60px;">¡Buen Provecho!</h1>
+
+  <p> Welcome to Buen Provecho, a recipe website developed by <em>Alex Corey!</em></p>
+
+  <ul>
+    <li><span style="color:#246B73;font-weight:bold;font-size:25px">Recipes:</span> {{ num_recipes }}</li>
+    <li><span style="color:#2B8C83;font-weight:bold;font-size:25px">Authors:</span> {{ num_authors }}</li>
+  </ul>
+
+{% endblock %}

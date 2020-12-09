@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+li {text-align: center;font-weight:bold;font-size:20px}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+</style>
+
+  <h1>Recipes</h1>
+  {% if recipe_list %}
+  {% if user.is_authenticated %}
+  <ul> 
+    {% for recipe in recipe_list %}
+      <li>
+        <a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a> ({{recipe.author}})
+
+      </li>
+    {% endfor %}
+	<li><a href="{% url 'recipe_create' %}"><span style="color:#6A0DC4;font-weight:bold;">Add recipe</span></a></li>
+  </ul>
+   {% else %}
+     <ul> 
+    {% for recipe in recipe_list %}
+      <li>
+        <a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a> ({{recipe.author}})
+      </li>
+    {% endfor %}
+  </ul>
+	{% endif %}
+  {% else %}
+    <p>There are no recipes in the cookbook.</p>
+  {% endif %}       
+{% endblock %}

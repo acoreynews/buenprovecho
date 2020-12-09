@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+li {text-align: center;}
+
+</style>
+
+  <h1>name: {{ recipe.name }}</h1>
+
+  <p><strong>Author:</strong> <a href="{% url 'author-detail' recipe.author.pk %}">{{ recipe.author }}</a></p>
+  <p> 
+  {% if recipe.photo %}    
+  
+  
+<!--<img src="{{recipe.photo.url}}" class="img-fluid" alt="Responsive image"> -->
+<!--  <img src="{{recipe.photo.url}}" class="rounded mx-auto d-block" alt="...">-->
+<div class="text-center">
+  <img src="{{recipe.photo.url}}" class="rounded" alt="...">
+</div>
+
+  {% endif %}
+  </p>
+  <p><strong>Summary:</strong> {{ recipe.summary }}</p>
+  <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p> 
+  <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>  
+  <p><strong>Type of food:</strong> {{ recipe.type_of_food }}</p>  
+  
+  {% if user.is_authenticated %}
+  <div class="text-center">
+  <a class="btn btn-info" href="{% url 'recipe_update' recipe.slug %}" role="button">Update Recipe</a>
+  <a class="btn btn-danger" href="{% url 'recipe_delete' recipe.slug %}" role="button">Delete Recipe</a>
+  </div>
+  {% else %}
+  {% endif %}
+
+{% endblock %}
