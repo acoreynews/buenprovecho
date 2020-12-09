@@ -29,7 +29,7 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 # reading .env file
-environ.Env.read_env()
+#environ.Env.read_env()
 
 #SECRET_KEY = 'Cookbook.env'
 SECRET_KEY = os.environ.get('SECRET_KEY')
