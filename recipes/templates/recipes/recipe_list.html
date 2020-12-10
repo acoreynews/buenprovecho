@@ -4,35 +4,56 @@
 
 <style>
 h1 {text-align: center;}
-p {text-align: center;}
+p {text-align: center;font-weight:bold;font-size:20px}
 li {text-align: center;font-weight:bold;font-size:20px}
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+a {text-align: center;font-weight:bold;font-size:20px}
+
 </style>
 
   <h1>Recipes</h1>
   {% if recipe_list %}
   {% if user.is_authenticated %}
-  <ul> 
-    {% for recipe in recipe_list %}
-      <li>
-        <a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a> ({{recipe.author}})
+  
+<div class="card-columns">
 
-      </li>
-    {% endfor %}
-	<li><a href="{% url 'recipe_create' %}"><span style="color:#6A0DC4;font-weight:bold;">Add recipe</span></a></li>
-  </ul>
-   {% else %}
-     <ul> 
     {% for recipe in recipe_list %}
-      <li>
-        <a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a> ({{recipe.author}})
-      </li>
+
+    <div class="card bg-info">
+      <div class="card-body text-center">
+      <a href="{{ recipe.get_absolute_url }}"><span style="color:white;font-size:20px">{{ recipe.name }}</span></a>
+
+    </br>({{recipe.author}})
+      </div>
+    </div>
+
+ 
     {% endfor %}
-  </ul>
+<div class="card bg-danger">
+      <div class="card-body text-center">
+      <a href="{% url 'recipe_create' %}"><span style="color:#6A0DC4;font-weight:bold;">Add recipe</span></a></br>__________
+
+      </div>
+    </div>
+  </div>
+   {% else %}
+      <div class="card-columns">
+
+    {% for recipe in recipe_list %}
+
+    <div class="card bg-info">
+      <div class="card-body text-center">
+      <a href="{{ recipe.get_absolute_url }}"><span style="color:white;font-size:20px">{{ recipe.name }}</span></a>
+
+    </br>({{recipe.author}})
+      </div>
+    </div>
+    {% endfor %}
+
 	{% endif %}
   {% else %}
     <p>There are no recipes in the cookbook.</p>

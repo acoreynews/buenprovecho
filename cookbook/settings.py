@@ -29,7 +29,7 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 # reading .env file
-#environ.Env.read_env()
+environ.Env.read_env()
 
 #SECRET_KEY = 'Cookbook.env'
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -171,6 +171,8 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 
 #Security settings
 SECURE_SSL_REDIRECT = True
