@@ -2,6 +2,18 @@
 
 {% block content %}
 
+<style>
+form {text-align: center;}
+p {text-align: center;}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+
+
   {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
   {% endif %}
@@ -17,7 +29,7 @@
   
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
+    <table class="center">
       <tr>
         <td>{{ form.username.label_tag }}</td>
         <td>{{ form.username }}</td>
@@ -27,7 +39,9 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login" />
+    
+
+    <input class="center" type="submit" value="login" />
 
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
