@@ -9,7 +9,7 @@ li {text-align: center;}
 
 </style>
 
-  <h1>name: {{ recipe.name }}</h1>
+  <h1>{{ recipe.name }}</h1>
 
   <p><strong>Author:</strong> <a href="{% url 'author-detail' recipe.author.pk %}">{{ recipe.author }}</a></p>
   <p> 
