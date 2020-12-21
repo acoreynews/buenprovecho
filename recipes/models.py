@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Type_of_food(models.Model):
     """Model representing a type of food (genre of food?)."""
-    name = models.CharField(max_length=500, help_text='Enter a type of food (e.g. Mexican, Pasta)')
+    name = models.CharField(max_length=500)
     
     def __str__(self):
         """String for representing the Model object."""
@@ -30,14 +30,14 @@ class Recipe(models.Model):
     # Author as a string rather than object because it hasn't been declared yet in the file
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     
-    summary = models.TextField(max_length=1000, help_text='Enter a brief description of the dish')
-    ingredients = models.TextField(max_length=1000, help_text='Enter the ingredients', default='ingredients here')
-    instructions = models.TextField(max_length=1000, help_text='Detail the cooking steps', default='steps here')
+    summary = models.TextField(max_length=1000)
+    ingredients = models.TextField(max_length=1000, default='ingredients here')
+    instructions = models.TextField(max_length=1000, default='steps here')
     
     # ManyToManyField used because Type_of_food can contain many recipes. Recipes can cover multiple Type_of_food(s).
     # Type_of_food class has already been defined so we can specify the object above.
     #type_of_food = models.ManyToManyField(Type_of_food, help_text='Select what kind of dish this is')
-    type_of_food = models.CharField(max_length=500, help_text='Select what kind of dish this is', default="other")
+    type_of_food = models.CharField(max_length=500, default="other")
     
     
     class Meta:
