@@ -20,13 +20,13 @@ ul {
   <ul class="menu">
     {% for author in author_list %}
       <li>
-        <a href="{{ author.get_absolute_url }}">{{ author.username }}</a>
+        <a href="{{ author.get_absolute_url }}"> {{ author.username }}</a>
       </li>
     {% endfor %}
 	<li><a href="{% url 'author_create' %}"><span style="color:#6A0DC4;font-weight:bold;">Add author</span></a></li>
   </ul>
   {% else %}
-    <ul class="menu">>
+    <ul class="menu">
     {% for author in author_list %}
       <li>
         <a href="{{ author.get_absolute_url }}">{{ author.username }}</a>
