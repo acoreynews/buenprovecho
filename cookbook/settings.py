@@ -173,7 +173,7 @@ LOGOUT_REDIRECT_URL = 'index'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-'''
+
 #Security settings
 SECURE_SSL_REDIRECT = True
 
@@ -189,4 +189,3 @@ SECURE_REFERRER_POLICY = "strict-origin"
 #SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 SECURE_BROWSER_XSS_FILTER = True
-'''
