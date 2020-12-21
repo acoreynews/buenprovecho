@@ -3,7 +3,7 @@
 {% block content %}
 
 <style>
-h1 {text-align: center;}
+h1, h2 {text-align: center;}
 p {text-align: center;}
 li {text-align: center;}
 </style>
@@ -11,9 +11,16 @@ li {text-align: center;}
 
   <p> Welcome to Buen Provecho, a recipe website developed by <em>Alex Corey!</em></p>
 
-  <ul>
-    <li><span style="color:#246B73;font-weight:bold;font-size:25px">Recipes:</span> {{ num_recipes }}</li>
-    <li><span style="color:#2B8C83;font-weight:bold;font-size:25px">Authors:</span> {{ num_authors }}</li>
-  </ul>
+<h2>Featured Recipe: <a class="nav-link" href="buenprovecho.herokuapp.com/recipes/recipe/macncheese">Mac & Cheese</a></h2>
+  <p><strong>Author:</strong> acorey </p>
+  <p> 
+
+  
+<div class="text-center">
+ <img class="img-fluid" src="/media/images/macncheese2.jpg" alt="Picture of food here"> 
+</div>
+
+  </p>
+  <p><strong>Summary:</strong> Perfect cheat day meal, ready within 15 minutes</p>
 
 {% endblock %}
